@@ -26,7 +26,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${import.meta.env.BACKENED_URL}/api/v1/login`, {
+      const response = await axios.post("https://checkin-frontened.vercel.app/api/v1/login", {
         number: form.phone,
         password: form.password,
       });
