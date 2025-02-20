@@ -20,7 +20,7 @@ app.use(
 );
  
 app.use(express.json());
-app.use(cookieParser());
+app.use(cookieParser()); 
  
 mongoose
   .connect(process.env.MONGO_URI)
@@ -33,6 +33,10 @@ mongoose
 
 const auth = require("./routes/User");
 app.use("/api/v1", auth);
+
+app.get("/", (req,res)=>{
+  res.redirect(process.env.FRONTENED_URL)
+})
  
 app.listen(PORT, () => {
   console.log(
