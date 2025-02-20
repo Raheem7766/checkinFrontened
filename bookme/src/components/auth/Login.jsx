@@ -26,12 +26,12 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://checkin-frontened.vercel.app/api/v1/login", {
+      const response = await axios.post("http://localhost:5001/api/v1/login", {
         number: form.phone,
         password: form.password,
       });
 
-      if (response.data.success) {  
+      if (response.data.success) {
         const { token, user, role } = response.data;
         localStorage.setItem("token", token);
         localStorage.setItem("userInfo", JSON.stringify(user));
